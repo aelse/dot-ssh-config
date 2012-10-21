@@ -15,9 +15,9 @@ Symptoms include:
 * Not much, if any, communication between environments
 * Jump hosts, jump hosts, jump hosts
 
-dot-ssh-config can help you manage your own access to hosts in all of
+*dot-ssh-config can help you manage your own access to hosts in all of
 your environments by taking the pain out of maintaining your ssh config
-file.
+file.*
 
 Security
 --------
