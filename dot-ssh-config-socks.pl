@@ -6,6 +6,9 @@
 # your ssh config files (eg. programming libraries such
 # as fabric) then try the static ports version of this program.
 #
+# This program relies on netcat being available at /bin/nc
+# on any jump hosts you will establish tunnels through.
+#
 # Alexander Else. aelse@github
 
 use Data::Dumper;
