@@ -13,6 +13,7 @@ Symptoms include:
 * Inconsistent (or no) DNS in some environments
 * Heavily segretated networks
 * Not much, if any, communication between environments
+* You have trouble ensuring everyone in your team has access to the same hosts
 * Jump hosts, jump hosts, jump hosts
 
 **dot-ssh-config can help you manage your own access to hosts in all of
