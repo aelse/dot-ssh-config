@@ -38,9 +38,6 @@ How to use it
 
 It's easy. Just run this command: `perl dot-ssh-config-sock.pl < myinputfile > ~/.ssh/config`
 
-If you would like to create an ssh config file for your colleague joe,
-you could run it like this: `USER=joe perl dot-ssh-config-sock.pl < myinputfile > ~/.ssh/config`
-
 All the "magic" is inside your input file. Have a look at the below
 examples and try running dot-ssh-config against the included example-input
 to see what a generated ssh config file looks like.
