@@ -40,7 +40,8 @@ It's easy. Just run this command: `perl dot-ssh-config-sock.pl < myinputfile > ~
 
 Then you can establish the tunnels by ssh'ing into your jump hosts.
 After that you're able to ssh from a terminal session on your
-workstation without having to manually ssh into each jump host again
+workstation without having to manually ssh into each jump host before
+getting onto the server you need.
 
 For example, if you have a configuration like this:
 
@@ -65,39 +66,41 @@ to see what a generated ssh config file looks like.
 Example configurations
 ----------------------
 
-Here is how to use it.
-
 The simplest example
 
     host1 192.168.0.10
 
+If the host is dns resolvable of course that's ok
+
+    host1a someserver.example.com
+
 Similar, but login as root user
 
     host2 192.168.0.20 User=root
-    
+
 You can also provide ssh options
 
     host3 192.168.0.21 ServerAliveInterval=10
-    
+
 The server may have ssh listening on a strange port
 
     host4 192.168.0.22 Port=2828
-    
+
 A straight-forward local tunneled port example
 
     webproxy 192.168.0.30 forward=3128:localhost:3128
-    
+
 Or tunnel to another host
 
     webproxy 192.168.0.31 forward=8080:proxy1.example.com:8080 forward=2222:proxy1.example.com:22
-    
-An example jump host
+
+An example jump host, with dns resolvable on the jump host
 
     jumpbox1 192.168.0.40 {
-      webserver1 10.0.0.100
+      webserver1 web1.my-internal-dns.com
       dbserver1 10.0.0.200 User=mysql
     }
-    
+
 And of course we can chain jump hosts
 
     jumpbox2 192.168.0.50 {

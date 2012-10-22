@@ -4,6 +4,9 @@
 # The simplest example
 host1 192.168.0.10
 
+# If the host is dns resolvable of course that's ok
+host1a someserver.example.com
+
 # Similar, but login as root user
 host2 192.168.0.20 User=root
 
@@ -19,9 +22,9 @@ webproxy 192.168.0.30 forward=3128:localhost:3128
 # Or tunnel to another host
 webproxy 192.168.0.31 forward=8080:proxy1.example.com:8080 forward=2222:proxy1.example.com:22
 
-# An example jump host
+# An example jump host, with dns resolvable on the jump host
 jumpbox1 192.168.0.40 {
-  webserver1 10.0.0.100
+  webserver1 web1.my-internal-dns.com
   dbserver1 10.0.0.200 User=mysql
 }
 
