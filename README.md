@@ -38,7 +38,27 @@ How to use it
 
 It's easy. Just run this command: `perl dot-ssh-config-sock.pl < myinputfile > ~/.ssh/config`
 
-All the "magic" is inside your input file. Have a look at the below
+Then you can establish the tunnels by ssh'ing into your jump hosts.
+After that you're able to ssh from a terminal session on your
+workstation without having to manually ssh into each jump host again
+
+For example, if you have a configuration like this:
+
+    jumpbox 192.168.99.99 {
+      magicbeans 10.9.9.1
+      beanstalk 10.9.9.9 {
+        goldengoose 10.8.8.8
+      }
+    }
+
+you could establish an ssh session to `jumpbox` then leave it open and
+forget about it. Thereafter you may pop up a new local terminal session
+and use `ssh magicbeans` or `ssh beanstalk` to access those servers. And
+of course if you have a session open to beanstalk you can `ssh
+goldengoose` from your local terminal without worrying about the
+intermediary hops.
+
+All the "magic beans" are inside your input file. Have a look at the below
 examples and try running dot-ssh-config against the included example-input
 to see what a generated ssh config file looks like.
 
