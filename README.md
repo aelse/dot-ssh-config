@@ -11,7 +11,7 @@ probably felt the pain of getting access to your systems.
 
 Symptoms include:
 * Inconsistent (or no) DNS in some environments
-* Heavily segretated networks
+* Heavily segregated networks
 * Not much, if any, communication between environments
 * You have trouble ensuring everyone in your team has access to the same hosts
 * Jump hosts, jump hosts, jump hosts
