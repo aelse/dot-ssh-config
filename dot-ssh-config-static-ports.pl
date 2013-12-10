@@ -20,11 +20,13 @@ sub add_host(@)
   my ($host, $addr, $extra) = @_;
 
   my $attrs = {
-    Host         => $host,
-    HostKeyAlias => $host,
-    HostName     => $addr,
-    TCPKeepAlive => 'yes',
-    User         => $ENV{'USER'},
+    Host                => $host,
+    HostKeyAlias        => $host,
+    HostName            => $addr,
+    TCPKeepAlive        => 'yes',
+    ServerAliveInterval => '180',
+    ServerAliveCountMax => '2',
+    User                => $ENV{'USER'},
   };
 
   foreach (split(/\s+/, $extra))
@@ -78,6 +80,7 @@ while (<>)
   elsif (/(\S+)\s+(\S+)\s*(\S.*)?/)
   {
     my ($host, $addr, $extra) = ($1, $2, $3);
+    $extra ||= '';
     add_host($1, $2, $3);
 
     if (/\{$/)

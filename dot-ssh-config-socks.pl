@@ -28,11 +28,13 @@ sub add_host(@)
   my ($host, $addr, $extra, $socks_listen) = @_;
 
   my $attrs = {
-    Host         => $host,
-    HostKeyAlias => $host,
-    HostName     => $addr,
-    TCPKeepAlive => 'yes',
-    User         => $ENV{'USER'},
+    Host                => $host,
+    HostKeyAlias        => $host,
+    HostName            => $addr,
+    TCPKeepAlive        => 'yes',
+    ServerAliveInterval => '180',
+    ServerAliveCountMax => '2',
+    User                => $ENV{'USER'},
   };
 
   if ($socks_listen)
@@ -95,6 +97,7 @@ while (<>)
   elsif (/(\S+)\s+(\S+)\s*(\S.*)?/)
   {
     my ($host, $addr, $extra) = ($1, $2, $3);
+    $extra ||= '';
 
     if (/\{$/)
     {
